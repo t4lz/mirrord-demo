@@ -1,0 +1,13 @@
+
+{
+    "accept_invalid_certificates": true,
+    "feature": {
+        "network": {
+            "incoming": "steal",
+            "outgoing": true
+        },
+        "fs": "local",
+        "env": true
+    }
+}
+    
