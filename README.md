@@ -20,7 +20,17 @@ redis service in its same k8s namespace.
 
 Once the resources are deployed to the cluster, you can:
 
-1. Run `kubectl` to 
-
-
+1. Run `kubectl` to show your audience the services and the external IP:
+```
+kubectl get svc
+NAME           TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)           AGE
+redis-leader   ClusterIP      10.44.6.236   <none>         6379/TCP          19d
+upper          LoadBalancer   10.44.5.66    34.136.42.53   30003:30003/TCP   19d
+```
+2. Send a curl request to <EXTERNAL-IP>:<PORT>/<SOME-NEW-STRING>:
+```
+curl 34.136.42.53:30003/my-test-string
+{"upper":"MY-TEST-STRING","version":"1.0"}
+```
+3. Run mirrord with `steal`: 
 WIP
